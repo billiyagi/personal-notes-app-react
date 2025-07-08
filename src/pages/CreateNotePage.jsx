@@ -41,12 +41,11 @@ export default function CreateNotePage() {
 						onChange={handleChangeTitle}
 						value={note.title}
 					/>
-					<div
+					<textarea
 						className="add-new-page__input__body"
-						contentEditable="true"
-						data-placeholder="some word of your notes..."
-						onInput={handleChangeBody}
-					></div>
+						placeholder="some word of your notes..."
+						onChange={handleChangeBody}
+					></textarea>
 				</div>
 
 				<div className="add-new-page__action">
