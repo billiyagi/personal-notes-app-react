@@ -21,7 +21,7 @@ export default function CreateNotePage() {
 	const handleChangeBody = (e) => {
 		setNote({
 			...note,
-			body: e.target.innerHTML,
+			body: e.target.value,
 		});
 	};
 
