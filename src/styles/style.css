@@ -9,9 +9,13 @@
 	--on-background: #ffffff;
 	--on-background-grey: #c7c7c7;
 	--on-surface: #ffffff;
+	--loader: #000;
+	--loader-screen: #fff;
 }
 
 [data-theme="light"] {
+	--loader: #fff;
+	--loader-screen: #000;
 	--background: #dddddd;
 	--suface: #ffffff;
 	--on-background: #333333;
@@ -286,16 +290,27 @@ main {
 	width: 30px;
 }
 
+.loading-indicator {
+	margin-top: 2rem;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
 .button-submit:disabled {
 	opacity: 0.7;
 }
 .button-submit span {
 	margin-right: 10px;
 }
+.loader-button {
+	border: 3px solid var(--loader);
+}
+.loader-screen {
+	border: 3px solid var(--loader-screen);
+}
 .loader {
 	width: 25px;
 	height: 25px;
-	border: 3px solid #fff;
 	border-bottom-color: transparent;
 	border-radius: 50%;
 	display: inline-block;

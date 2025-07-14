@@ -1,5 +1,6 @@
 const en = {
 	brand: 'Personal Notes App',
+	loading: 'Please wait',
 	back: 'Back to Home',
 	nav: {
 		archive: 'Archive',

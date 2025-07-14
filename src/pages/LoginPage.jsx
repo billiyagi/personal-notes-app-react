@@ -8,7 +8,6 @@ import { login, putAccessToken } from "../utils/network-data";
 import useApiRequest from "../hooks/useApiRequest";
 import Button from "../components/Button";
 import { useAuth } from "../contexts/AuthContext";
-// import AuthContext from "../contexts/AuthContext";
 
 export default function LoginPage() {
 	const { request, isLoading } = useApiRequest();
@@ -17,7 +16,6 @@ export default function LoginPage() {
 	const [password, setPassword] = useInput();
 	const navigate = useNavigate();
 	const { authenticate } = useAuth();
-	// console.log(authenticate);
 
 	const handleOnSubmit = async () => {
 		/**

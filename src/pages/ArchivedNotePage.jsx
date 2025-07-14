@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../Layout";
 import NoteList from "../components/NoteList";
-import { getArchivedNotes } from "../utils/local-data";
+import useApiRequest from "../hooks/useApiRequest";
+import Loading from "../components/Loading";
+import { getArchivedNotes } from "../utils/network-data";
 
 export default function ArchivedNotePage() {
-	const archivedNotes = getArchivedNotes();
+	const { request, isLoading } = useApiRequest();
+	const [notes, setNotes] = useState([]);
+
+	useEffect(() => {
+		const fetchArchivedNotes = async () => {
+			const { data } = await request(getArchivedNotes);
+			setNotes(data);
+		};
+
+		fetchArchivedNotes();
+	}, []);
+
 	return (
-		<Layout>
-			<NoteList notes={archivedNotes} />
-		</Layout>
+		<Layout>{isLoading ? <Loading /> : <NoteList notes={notes} />}</Layout>
 	);
 }

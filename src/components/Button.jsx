@@ -9,7 +9,7 @@ export default function Button({ text, onClick, isLoading }) {
 				className="button-submit"
 				disabled
 			>
-				<span className="loader"></span> Loading
+				<span className="loader loader-button"></span> Loading
 			</button>
 		);
 	} else {

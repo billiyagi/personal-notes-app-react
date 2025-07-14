@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useTheme } from "./contexts/ThemeContext";
-import { useAuth } from "./contexts/AuthContext";
 
 export default function Layout({ children }) {
 	const { theme } = useTheme();

@@ -1,5 +1,6 @@
 const id = {
 	brand: 'Aplikasi Catatan Pribadi',
+	loading: 'Mohon tunggu',
 	back: 'Kembali ke Beranda',
 	nav: {
 		archive: 'Arsip',

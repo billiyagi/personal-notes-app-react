@@ -16,9 +16,11 @@ export default function Header() {
 			</h1>
 			<nav className="navigation">
 				<ul>
-					<li>
-						<Link to={"/archived"}>{text.nav.archive}</Link>
-					</li>
+					{user && (
+						<li>
+							<Link to={"/archived"}>{text.nav.archive}</Link>
+						</li>
+					)}
 					<li>
 						<Link to={"/about"}>{text.nav.about}</Link>
 					</li>

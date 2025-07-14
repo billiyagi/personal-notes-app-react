@@ -1,34 +1,22 @@
 import React from "react";
 import Layout from "../Layout";
-import { useState } from "react";
-import { addNote } from "../utils/local-data";
+import { addNote } from "../utils/network-data";
 import { useNavigate } from "react-router-dom";
 import { useLocale } from "../contexts/LocaleContext";
+import useInput from "../hooks/useInput";
+import useApiRequest from "../hooks/useApiRequest";
 
 export default function CreateNotePage() {
+	const { request } = useApiRequest();
 	const navigate = useNavigate();
+	const [title, setTitle] = useInput();
+	const [body, setBody] = useInput();
+
 	const { text } = useLocale();
-	const [note, setNote] = useState({
-		title: "",
-		body: "",
-	});
 
-	const handleChangeTitle = (e) => {
-		setNote({
-			...note,
-			title: e.target.value,
-		});
-	};
+	const handleSaveNote = async () => {
+		await request(addNote, { title, body });
 
-	const handleChangeBody = (e) => {
-		setNote({
-			...note,
-			body: e.target.value,
-		});
-	};
-
-	const handleSaveNote = () => {
-		addNote(note);
 		navigate("/");
 	};
 
@@ -40,14 +28,14 @@ export default function CreateNotePage() {
 						type="text"
 						className="add-new-page__input__title"
 						placeholder={text.form.title.placeholder}
-						onChange={handleChangeTitle}
-						value={note.title}
+						onChange={setTitle}
+						value={title}
 					/>
 					<textarea
 						className="add-new-page__input__body"
 						placeholder={text.form.body.placeholder}
-						onChange={handleChangeBody}
-						value={note.body}
+						onChange={setBody}
+						value={body}
 					></textarea>
 				</div>
 
