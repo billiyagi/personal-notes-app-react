@@ -2,8 +2,10 @@ import React from "react";
 import NoteItem from "./NoteItem";
 import PropTypes from "prop-types";
 import { NoteType } from "../types/note";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function NoteList({ notes }) {
+	const { text } = useLocale();
 	return (
 		<>
 			<div className="notes-list">
@@ -14,7 +16,7 @@ export default function NoteList({ notes }) {
 			<div>
 				{notes.length === 0 && (
 					<div className="notes-list-empty">
-						<p>No notes available.</p>
+						<p>{text.notfound.data}</p>
 					</div>
 				)}
 			</div>

@@ -31,10 +31,17 @@ a {
 
 body {
 	font-family: "Inter", sans-serif;
-	color: var(--on-background);
-	background-color: var(--background);
 	min-height: 100vh;
 	transition: all ease-in-out 0.5s;
+}
+
+.app-container {
+	background-color: #121212;
+	background-color: var(--background);
+	color: #fff;
+	color: var(--on-background);
+	min-height: 100vh;
+	transition: all 0.5s ease-in-out;
 }
 
 header {
@@ -214,13 +221,16 @@ main {
 }
 
 .toggle-theme {
-	font-size: 36px;
+	width: 36px;
 }
 
 .toggle-locale {
 	font-size: 28px;
 }
-
+.login-page {
+	width: 50%;
+	margin: 2rem auto;
+}
 .input-login,
 .input-register {
 	margin: 32px 0;
@@ -272,6 +282,35 @@ main {
 	color: var(--on-background);
 }
 
+.button-logout svg {
+	width: 30px;
+}
+
+.button-submit:disabled {
+	opacity: 0.7;
+}
+.button-submit span {
+	margin-right: 10px;
+}
+.loader {
+	width: 25px;
+	height: 25px;
+	border: 3px solid #fff;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 footer {
 	margin-top: 32px;
 	padding: 16px;
@@ -300,6 +339,13 @@ footer {
 }
 .not-found-page div {
 	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+	.login-page {
+		width: 100%;
+		margin: auto;
+	}
 }
 
 @media screen and (min-width: 650px) {

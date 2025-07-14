@@ -2,8 +2,10 @@ import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function SearchBar({ setKeyword, keyword }) {
+	const { text } = useLocale();
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	const paramKeyword = searchParams.get("keyword");
@@ -27,10 +29,10 @@ export default function SearchBar({ setKeyword, keyword }) {
 
 	return (
 		<section className="search-bar">
-			<h2>Cari Catatan</h2>
+			<h2>{text.search.label}</h2>
 			<input
 				type="text"
-				placeholder="cari note kamu.."
+				placeholder={text.search.placeholder}
 				onChange={handleSearchNotes}
 				value={keyword}
 			/>

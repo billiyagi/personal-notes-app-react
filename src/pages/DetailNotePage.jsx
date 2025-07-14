@@ -9,11 +9,13 @@ import {
 import Layout from "../Layout";
 import { showFormattedDate } from "../utils";
 import parse from "html-react-parser";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function DetailNotePage() {
 	const params = useParams();
 	const note = getNote(params.id);
 	const navigate = useNavigate();
+	const { text } = useLocale();
 
 	/**
 	 * Handle when user click the delete button
@@ -93,7 +95,7 @@ export default function DetailNotePage() {
 				</div>
 
 				<Link to={"/"} className="button-to-home" title="Back to Home">
-					Kembali ke Home
+					{text.back}
 				</Link>
 			</section>
 		</Layout>

@@ -3,9 +3,11 @@ import Layout from "../Layout";
 import { useState } from "react";
 import { addNote } from "../utils/local-data";
 import { useNavigate } from "react-router-dom";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function CreateNotePage() {
 	const navigate = useNavigate();
+	const { text } = useLocale();
 	const [note, setNote] = useState({
 		title: "",
 		body: "",
@@ -37,13 +39,13 @@ export default function CreateNotePage() {
 					<input
 						type="text"
 						className="add-new-page__input__title"
-						placeholder="Your Title Here"
+						placeholder={text.form.title.placeholder}
 						onChange={handleChangeTitle}
 						value={note.title}
 					/>
 					<textarea
 						className="add-new-page__input__body"
-						placeholder="some word of your notes..."
+						placeholder={text.form.body.placeholder}
 						onChange={handleChangeBody}
 						value={note.body}
 					></textarea>
@@ -52,7 +54,7 @@ export default function CreateNotePage() {
 				<div className="add-new-page__action">
 					<button
 						className="action"
-						title="Save this Note"
+						title={text.form.button}
 						type="button"
 						onClick={handleSaveNote}
 					>

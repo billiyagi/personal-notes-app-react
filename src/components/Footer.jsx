@@ -1,5 +1,7 @@
 import React from "react";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function Footer() {
-	return <footer>Made with ❤️ by Febry Billiyagi</footer>;
+	const { text } = useLocale();
+	return <footer>{text.footer}</footer>;
 }
