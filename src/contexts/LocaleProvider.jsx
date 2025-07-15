@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import LocaleContext from "./LocaleContext";
 import id from "../lang/id";
 import en from "../lang/en";
+import PropTypes from "prop-types";
 import { getLocale, applyLocale } from "../utils";
 
 export default function LocaleProvider({ children }) {
@@ -44,3 +45,7 @@ export default function LocaleProvider({ children }) {
 		</LocaleContext.Provider>
 	);
 }
+
+LocaleProvider.propTypes = {
+	children: PropTypes.node.isRequired,
+};

@@ -1,4 +1,5 @@
 import AuthContext from "./AuthContext";
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import {
 	putAccessToken,
@@ -57,3 +58,7 @@ export function AuthProvider({ children }) {
 		</AuthContext.Provider>
 	);
 }
+
+AuthProvider.propTypes = {
+	children: PropTypes.node.isRequired,
+};

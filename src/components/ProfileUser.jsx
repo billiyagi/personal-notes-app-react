@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfileUser({ user, logout }) {
@@ -36,3 +37,10 @@ export default function ProfileUser({ user, logout }) {
 		</button>
 	);
 }
+
+ProfileUser.propTypes = {
+	user: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+	}).isRequired,
+	logout: PropTypes.func.isRequired,
+};

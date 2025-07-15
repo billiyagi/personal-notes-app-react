@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function Button({ text, onClick, isLoading }) {
 	if (isLoading) {
@@ -20,3 +21,9 @@ export default function Button({ text, onClick, isLoading }) {
 		);
 	}
 }
+
+Button.propTypes = {
+	text: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+	isLoading: PropTypes.bool,
+};
